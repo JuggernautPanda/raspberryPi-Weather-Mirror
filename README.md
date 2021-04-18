@@ -11,3 +11,4 @@ sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 
 LCD display
 git clone https://github.com/goodtft/LCD-show.git
+The templates and static folder contents got swapped.
