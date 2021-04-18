@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>weather</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+  <nav class="row" style="background: #337ab7; color: white;">
+    <h1 class="col-md-3 text-center">mirror</h1>
+  </nav>
+  <br />
+  <br />
+ <center class="row">
+    <form method="post" class="col-md-6 col-md-offset-3">
+      <div class="input-group">
+        <input type="text" class="form-control" name="city" placeholder="Search">
+        <div class="input-group-btn">
+          <button class="btn btn-primary" type="submit">
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+        </div>
+        <form>
+  </center>
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+	<h5><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+  <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+  <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+</svg>
+{{data.time}}
+</h5>
+</div>
+</div>
+  <div class="row">
+    {% if data.country_code and data.coordinate and data.temp and data.pressure and data.humidity %}
+    <div class="col-md-6 col-md-offset-3">
+      <!--<h3>country code : {{data.country_code}}</h1> -->
+        <h5><b>City name : {{data.cityname}}</b></h5>
+        <!--<h5>coordinate : {{data.coordinate}}</h5> -->
+        <h5>  <i class='fas fa-temperature-high' style='font-size:36px'>temp :{{data.temp}}</i></h5>
+       <!-- <h5> <i class='fas fa-temperature-high' style='font-size:36px'>temp (in celcius) : {{data.temp_cel}}</i></h5> -->
+        <h5><i class='fas fa-wind' style='font-size:36px'>pressure : {{data.pressure}} </i></h5><br><br>
+        <h5><i class='fas fa-water' style='font-size:36px'>humidity : {{data.humidity}}</i></h5>
+    </div>
+    {% endif %}
+  </div>
+
+</body>
+
+</html>

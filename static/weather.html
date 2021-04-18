@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style>
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
+    <meta charset="UTF-8">
+    <title>Weather Mirror</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+      <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <script src="{{url_for('static', filename='app.js')}}"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Weather Mirror</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <!--<ul class="nav navbar-nav navbar-right">
+            <li><a href="https://github.com/evinr/Dashboards/blob/master/Simple_Weather_Dashboard.html">Source Code</a></li>
+          </ul>-->
+          <!--<form method="post" class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+              <input class="form-control" name="userLocation" placeholder="City, ST here..." type="text">
+            </div>
+          </form>-->
+          
+           <center class="row">
+    <form method="post" class="navbar-form navbar-right">
+      <div class="input-group">
+        <input type="text" class="form-control" name="city" placeholder="Search">
+        <div class="input-group-btn">
+          <button class="btn btn-primary" type="submit">
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+        </div>
+        <form>
+  </center>
+        </div>
+      </div>
+    </nav>
+    <!--Begin Data Presentation Area -->
+    <div class="container-fluid">
+      <div class="pagina">
+        <div class="linha">
+          <h1 class="local_heading"></h1>
+          <div class="tile temperature"><span class="temp"><i class='fas fa-temperature-high' style='font-size:36px'>{{data.temp}}</i></span></div>
+          <div class="tile longTile blue"><span class="wind">Location:{{data.cityname}}</span></div>
+          <div class="tile  purple"><span class="humid"><i class='fas fa-water' style='font-size:36px'>{{data.humidity}}</i></</span></div>
+          <div class="tile  blue"><span class="wind"><i class='fas fa-wind' style='font-size:36px'>{{data.pressure}}</i></span></div>
+          <div class="tile blue"><span class="dew"></span>{{data.time}}</div>
+          <div class="tile longTile purple"><span class="wind">{{data.news}}</span></div>
+          <div class="tile temperature"><span class="temp"><a href="/LED" target="_blank"><h2>Power Control!</h2></a></span></div>
+          <div class="tile longTile blue"><span class="dew">
+          <a href="/black">
+          <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
+  <path d="M7.5 1v7h1V1h-1z"/>
+  <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z"/>
+</svg></a>
+          </span></div>
+          <!--<div class="tile longTile time"><span class="rise"></span><br><span class="set"></span><br><span class="day">{{data.time}}</span></div>-->
+ <!--<div class="tile time"><span class="wind">
+<label class="switch">
+  <input type="checkbox" {{data.button1}}>
+  <span class="slider"></span>
+</label>
+</span></div>
+<div class="tile time"><span class="wind">
+<label class="switch">
+  <input type="checkbox" {{data.button2}}>
+  <span class="slider"></span>
+</label>
+</span></div> -->
+
+
+        </div>
+      </div>
+    </div>
+    
+  </body>
+</html>
+    
